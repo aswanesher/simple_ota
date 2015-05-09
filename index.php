@@ -11,6 +11,15 @@ include "config/db_config.php";
 <meta name="author" content="">
 <link rel="stylesheet" type="text/css" href="style.css" />
 <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({ dateFormat: 'dd/mm/yy' });
+    $( "#datepicker2" ).datepicker({ dateFormat: 'dd/mm/yy' });
+  });
+</script>
 </head>
 <body>
 <p class="links"><a href="index.php" class="selected">Main Form</a> | <a href="detail.php">Detail Form</a> |<a href="account.php">Account Form</a> | <a href="payment.php">Payment Form</a></p>
@@ -62,11 +71,11 @@ foreach ($json_idr['destination'] as $myd) {
         </p>
         <p class="pull-left">
           <label>Leave</label>
-          <input type="text"  class="calender" placeholder=" dd/mm/yyy"/>
+          <input type="text" id="datepicker" class="calender" placeholder=" dd/mm/yyy"/>
         </p>
         <p class="pull-right">
           <label>Return</label>
-          <input type="text"  class="calender" placeholder=" dd/mm/yyy"/>
+          <input type="text" id="datepicker2" class="calender" placeholder=" dd/mm/yyy"/>
         </p>
 
         
@@ -108,7 +117,7 @@ foreach ($json_idr['destination'] as $myd) {
         </p>
       </form>
     </div>
-    <div id="box-two">
+    <!--<div id="box-two">
       <p class="selected_hotel"></p>
       <h3>Find Discount &amp;Cheap Hotel Rates</h3>
       <form>
@@ -475,7 +484,7 @@ foreach ($json_idr['destination'] as $myd) {
           <button type="submit" class="orange_btn">Find Cruises </button>
         </p>
       </form>
-    </div>
+    </div>-->
   </div>
 </div>
 </body>
