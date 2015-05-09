@@ -1,0 +1,8 @@
+<script type="text/javascript">
+var jsonData = JSON.parse("http://ws.demo.awan.sqiva.com/?rqid=5EB9FE68-8915-11E0-BEA0-C9892766ECF2&airline_code=W2&app=data&action=get_org");
+for (var i = 0; i < jsonData.employees.length; i++) {
+    var counter = jsonData.employees[i];
+    //console.log(counter.counter_name);
+    alert(counter.firstName);
+}
+</script>
