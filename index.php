@@ -17,9 +17,9 @@ include "config/db_config.php";
 <div class="tabbed-area">
   <ul class="tabs group">
     <li><a href="#box-one">Flight</a></li>
-    <li><a href="#box-two">Hotel</a></li>
+    <!--<li><a href="#box-two">Hotel</a></li>
     <li><a href="#box-three">Car</a></li>
-    <li><a href="#box-four">Cruises</a></li>
+    <li><a href="#box-four">Cruises</a></li>-->
   </ul>
   <div class="box-wrap">
     <div id="box-one">
