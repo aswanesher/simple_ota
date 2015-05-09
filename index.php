@@ -1,4 +1,6 @@
-
+<?php 
+include "config/db_config.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
