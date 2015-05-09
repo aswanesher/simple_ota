@@ -30,16 +30,35 @@ include "config/db_config.php";
           <input type="radio" name="radio" class="radio" />
           Round trip</span> <span>
           <input type="radio" name="radio" class="radio" />
-          One-way</span> <span>
-          <input type="radio" name="radio" class="radio" />
-          Multi-city </span></p>
-        <p class="pull-left">
-          <label>Form<small>( City name or airport )</small></label>
-          <input type="text" />
+          One-way</span></p>
+         <p class="pull-left">
+          <label>From<small>( City name or airport )</small></label>
+          <select class="pull-left">
+              <?php 
+              $url = "http://ws.demo.awan.sqiva.com/?rqid=5EB9FE68-8915-11E0-BEA0-C9892766ECF2&airline_code=W2&app=data&action=get_org";
+$jsonUrl = file_get_contents($url, False);
+$json_idr = json_decode($jsonUrl, true);
+echo "<option value=''>Origin</option>";
+foreach ($json_idr['origin'] as $myd) {
+    echo "<option value='$myd[0]'>$myd[1] ($myd[0])</option>";
+}
+              ?>
+            
+          </select>
         </p>
         <p class="pull-right">
           <label>To<small>( City name or airport )</small></label>
-          <input type="text" />
+          <select>
+            <option value="">Destination</option>
+            <?php 
+ $url = "http://ws.demo.awan.sqiva.com/?rqid=5EB9FE68-8915-11E0-BEA0-C9892766ECF2&airline_code=W2&app=data&action=get_des";
+$jsonUrl = file_get_contents($url, False);
+$json_idr = json_decode($jsonUrl, true);
+foreach ($json_idr['destination'] as $myd) {
+    echo "<option value='$myd[0]'>$myd[1] ($myd[0])</option>";
+}
+            ?>
+          </select>
         </p>
         <p class="pull-left">
           <label>Leave</label>
@@ -49,70 +68,8 @@ include "config/db_config.php";
           <label>Return</label>
           <input type="text"  class="calender" placeholder=" dd/mm/yyy"/>
         </p>
-        <p class="pull-left">
-          <select>
-            <option>Anytime </option>
-            <option>12:00am</option>
-            <option>1:00am</option>
-            <option>2:00am</option>
-            <option>3:00am</option>
-            <option>4:00am</option>
-            <option>5:00am</option>
-            <option>6:00am</option>
-            <option>7:00am</option>
-            <option>8:00am</option>
-            <option>9:00am</option>
-            <option>10:00am</option>
-            <option>11:00am</option>
-            <option>12:00pm</option>
-            <option>1:00pm</option>
-            <option>2:00pm</option>
-            <option>3:00pm</option>
-            <option>4:00pm</option>
-            <option>5:00pm</option>
-            <option>6:00pm</option>
-            <option>7:00pm</option>
-            <option>8:00pm</option>
-            <option>9:00pm</option>
-            <option>10:00pm</option>
-            <option>11:00pm</option>
-            <option>Morning</option>
-            <option>Afternoon</option>
-            <option>Evening</option>
-          </select>
-        </p>
-        <p class="pull-right">
-          <select>
-            <option>Anytime </option>
-            <option>12:00am</option>
-            <option>1:00am</option>
-            <option>2:00am</option>
-            <option>3:00am</option>
-            <option>4:00am</option>
-            <option>5:00am</option>
-            <option>6:00am</option>
-            <option>7:00am</option>
-            <option>8:00am</option>
-            <option>9:00am</option>
-            <option>10:00am</option>
-            <option>11:00am</option>
-            <option>12:00pm</option>
-            <option>1:00pm</option>
-            <option>2:00pm</option>
-            <option>3:00pm</option>
-            <option>4:00pm</option>
-            <option>5:00pm</option>
-            <option>6:00pm</option>
-            <option>7:00pm</option>
-            <option>8:00pm</option>
-            <option>9:00pm</option>
-            <option>10:00pm</option>
-            <option>11:00pm</option>
-            <option>Morning</option>
-            <option>Afternoon</option>
-            <option>Evening</option>
-          </select>
-        </p>
+
+        
         <p class="select_age"> <span>
           <label>Adult(18-64)</label>
           <select class="first">
@@ -239,108 +196,37 @@ include "config/db_config.php";
       <h3>Choose your destination, length, and cruise line</h3>
       <form action="post">
         <p class="pull-left">
-          <label>Cruise Destination</label>
+          <label>Origin</label>
           <select class="pull-left">
-            <option>Destination</option>
-            <option>Africa</option>
-            <option>Alaska - All</option>
-            <option>&nbsp;Alaska</option>
-            <option>&nbsp;Alaska Cruise Tours</option>
-            <option>Antarctica</option>
-            <option>Asia - all</option>
-            <option>&nbsp;Asia</option>
-            <option>&nbsp;Asia Cruise Tours</option>
-            <option>&nbsp;India</option>
-            <option>Australia/New Zealand - all</option>
-            <option>&nbsp;Australia/New Zealand</option>
-            <option>&nbsp;Australia/New Zealand Cruise Tours</option>
-            <option>Bahamas</option>
-            <option>Bermuda</option>
-            <option>Canada/New England - all</option>
-            <option>&nbsp;Canada/New England</option>
-            <option>&nbsp;Canada/New England Cruise Tours</option>
-            <option>Caribbean - All</option>
-            <option>&nbsp;Eastern Caribbean</option>
-            <option>&nbsp;Southern Caribbean</option>
-            <option>&nbsp;Western Caribbean</option>
-            <option>Europe - All</option>
-            <option>&nbsp;Europe Cruise Tours</option>
-            <option>&nbsp;Mediterranean</option>
-            <option>&nbsp;Northern Europe</option>
-            <option>&nbsp;Transatlantic</option>
-            <option>&nbsp;Western Europe</option>
-            <option>Hawaii</option>
-            <option>Mexico - All</option>
-            <option>&nbsp;Baja California</option>
-            <option>&nbsp;Mexican Riviera</option>
-            <option>Middle East - all</option>
-            <option>&nbsp;Middle East</option>
-            <option>Nowhere</option>
-            <option>Panama Canal</option>
-            <option>River Cruise</option>
-            <option>&nbsp;River Cruise - China</option>
-            <option>&nbsp;River Cruise - Europe</option>
-            <option>&nbsp;River Cruise - Indochina</option>
-            <option>»&nbsp;River Cruise - Russia</option>
-            <option>South America - parent</option>
-            <option>&nbsp;Galapagos Islands</option>
-            <option>&nbsp;South America</option>
-            <option>&nbsp;South America Cruise Tours</option>
-            <option>Tahiti</option>
-            <option>U.S. Pacific Coast</option>
-            <option>World</option>
+              <?php 
+              $url = "http://ws.demo.awan.sqiva.com/?rqid=5EB9FE68-8915-11E0-BEA0-C9892766ECF2&airline_code=W2&app=data&action=get_org";
+$jsonUrl = file_get_contents($url, False);
+$json_idr = json_decode($jsonUrl, true);
+echo "<option value=''>Origin</option>";
+foreach ($json_idr['origin'] as $myd) {
+    echo "<option value='$myd[0]'>$myd[1] ($myd[0])</option>";
+}
+              ?>
+            
           </select>
         </p>
         <p class="pull-right">
-          <label>Cruise Length</label>
+          <label>Destination</label>
           <select>
-            <option value="">Length</option>
-            <option>1-2 Nights</option>
-            <option>3-6 Nights</option>
-            <option>7-9 Nights</option>
-            <option>10-14 Nights</option>
-            <option>Over 14 Nights</option>
+            <option value="">Destination</option>
+            <?php 
+ $url = "http://ws.demo.awan.sqiva.com/?rqid=5EB9FE68-8915-11E0-BEA0-C9892766ECF2&airline_code=W2&app=data&action=get_des";
+$jsonUrl = file_get_contents($url, False);
+$json_idr = json_decode($jsonUrl, true);
+foreach ($json_idr['destination'] as $myd) {
+    echo "<option value='$myd[0]'>$myd[1] ($myd[0])</option>";
+}
+            ?>
           </select>
         </p>
-        <p class="pull-left">
-          <label>Departure Month</label>
-          <select>
-            <option>Any</option>
-            <option>Jul-2013</option>
-            <option>Aug-2013</option>
-            <option>Sep-2013</option>
-            <option>Oct-2013</option>
-            <option>Nov-2013</option>
-            <option>Dec-2013</option>
-            <option>Jan-2014</option>
-            <option>Feb-2014</option>
-            <option>Mar-2014</option>
-            <option >Apr-2014</option>
-            <option>May-2014</option>
-            <option>Jun-2014</option>
-            <option>Jul-2014</option>
-            <option >Aug-2014</option>
-            <option>Sep-2014</option>
-            <option>Oct-2014</option>
-            <option>Nov-2014</option>
-            <option>Dec-2014</option>
-            <option>Jan-2015</option>
-            <option >Feb-2015</option>
-            <option>Mar-2015</option>
-            <option>Apr-2015</option>
-            <option>May-2015</option>
-            <option >Jun-2015</option>
-            <option >Jul-2015</option>
-          </select>
-        </p>
-        <p class="pull-right">
-          <label>Day</label>
-          <select>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-          </select>
+                <p class="pull-left">
+          <label>Check-in</label>
+          <input type="text"  class="calender" placeholder=" dd/mm/yyy"/>
         </p>
         <p class="pull-left">
           <label>Cruise Departure Port</label>
