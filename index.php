@@ -1,26 +1,6 @@
 <?php 
-include "config/db_config.php";
+require_once("header.php");
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Travel Booking Form ( Hotel, Flight, Car, Cruises)</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Travel Booking Form ( Hotel, Flight, Car, Cruises)"/>
-<meta name="author" content="">
-<link rel="stylesheet" type="text/css" href="style.css" />
-<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script>
-  $(function() {
-    $( "#datepicker" ).datepicker({ dateFormat: 'dd/mm/yy' });
-    $( "#datepicker2" ).datepicker({ dateFormat: 'dd/mm/yy' });
-  });
-</script>
-</head>
 <body>
 <p class="links"><a href="index.php" class="selected">Main Form</a> | <a href="detail.php">Detail Form</a> |<a href="account.php">Account Form</a> | <a href="payment.php">Payment Form</a></p>
 <div class="tabbed-area">
@@ -34,7 +14,7 @@ include "config/db_config.php";
     <div id="box-one">
       <p class="line"></p>
       <h3>Search for Cheap Flights</h3>
-      <form  method="post">
+      <form  method="post" action="showmaskapai.php">
         <p class="select_flight"> <span>
           <input type="radio" name="radio" class="radio" />
           Round trip</span> <span>
@@ -488,4 +468,6 @@ foreach ($json_idr['destination'] as $myd) {
   </div>
 </div>
 </body>
-</html>
+<?php 
+require_once("footer.php");
+?>
