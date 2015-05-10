@@ -22,7 +22,7 @@ require_once("header.php");
           One-way</span></p>
          <p class="pull-left">
           <label>From<small>( City name or airport )</small></label>
-          <select class="pull-left">
+          <select class="pull-left" name="orig">
               <?php 
               $url = "http://ws.demo.awan.sqiva.com/?rqid=5EB9FE68-8915-11E0-BEA0-C9892766ECF2&airline_code=W2&app=data&action=get_org";
 $jsonUrl = file_get_contents($url, False);
@@ -37,7 +37,7 @@ foreach ($json_idr['origin'] as $myd) {
         </p>
         <p class="pull-right">
           <label>To<small>( City name or airport )</small></label>
-          <select>
+          <select name="dest">
             <option value="">Destination</option>
             <?php 
  $url = "http://ws.demo.awan.sqiva.com/?rqid=5EB9FE68-8915-11E0-BEA0-C9892766ECF2&airline_code=W2&app=data&action=get_des";
@@ -51,11 +51,11 @@ foreach ($json_idr['destination'] as $myd) {
         </p>
         <p class="pull-left">
           <label>Leave</label>
-          <input type="text" id="datepicker" class="calender" placeholder=" dd/mm/yyy"/>
+          <input type="text" id="datepicker" name="flight_date" class="calender" placeholder=" dd/mm/yyy"/>
         </p>
         <p class="pull-right">
           <label>Return</label>
-          <input type="text" id="datepicker2" class="calender" placeholder=" dd/mm/yyy"/>
+          <input type="text" id="datepicker2" name="return_date" class="calender" placeholder=" dd/mm/yyy"/>
         </p>
 
         
