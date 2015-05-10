@@ -19,12 +19,14 @@ $return_date 	= $pecahtgl2[2].$pecahtgl2[1].$pecahtgl2[0];
 		$jsonUrl = file_get_contents($url, False);
 		$json_idr = json_decode($jsonUrl, true);
 		//var_dump($json_idr);
+		echo "Jadwal Keberangkatan<br>";
 		foreach ($json_idr['schedule'] as $myd) {
     		echo $myd[0].",".$myd[1].",".$myd[2].",".$myd[3].",".$myd[4].",".$myd[5].",".$myd[6].",".$myd[7]."<br>";
 		}
-		/*foreach ($json_idr['ret_schedule'] as $myd1) {
+		echo "Jadwal Kembali<br>";
+		foreach ($json_idr['ret_schedule'] as $myd1) {
     		echo $myd1[0].",".$myd1[1].",".$myd1[2].",".$myd1[3].",".$myd1[4].",".$myd1[5].",".$myd1[6].",".$myd1[7]."<br>";
-		}*/
+		}
       ?>
     
     </div>
