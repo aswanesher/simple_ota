@@ -19,5 +19,22 @@ include "config/db_config.php";
     $( "#datepicker" ).datepicker({ dateFormat: 'dd/mm/yy' });
     $( "#datepicker2" ).datepicker({ dateFormat: 'dd/mm/yy' });
   });
+
+  $(document).ready(function(){
+  	$('#one').click(function() {
+   		if($('#one').is(':checked')) 
+   			{ 
+   				$('#two').prop('checked',false);	
+   				$("#datepicker2").attr("disabled", "disabled"); 
+   			}
+	});
+	$('#two').click(function() {
+   		if($('#two').is(':checked')) 
+   			{ 
+   				$('#one').prop('checked',false);	
+   				$('#datepicker2').removeAttr("disabled");
+   			}
+	});
+  });
 </script>
 </head>
