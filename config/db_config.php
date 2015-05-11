@@ -5,7 +5,7 @@ $user		= "root";
 $passw		= "";
 $db			= "ota_db";
 
-$conn = mysql_connect($host, $user, $passw);
-mysql_select_db($db, $conn);
+$conn = mysqli_connect($host, $user, $passw);
+//mysqli_select_db($db, $conn);
 
 ?>
