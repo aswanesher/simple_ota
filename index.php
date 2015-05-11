@@ -16,9 +16,9 @@ require_once("header.php");
       <h3>Search for Cheap Flights</h3>
       <form  method="post" action="showmaskapai.php">
         <p class="select_flight"> <span>
-          <input type="radio" name="radio" class="radio" />
+          <input type="radio" name="radio" id="two" class="radio" />
           Round trip</span> <span>
-          <input type="radio" name="radio" class="radio" />
+          <input type="radio" name="radio" id="one" class="radio" />
           One-way</span></p>
          <p class="pull-left">
           <label>From<small>( City name or airport )</small></label>
