@@ -53,7 +53,7 @@ echo "Flight Date = ".$json_idr['flight_date']."</br>";
 echo "Extra Days = ".$json_idr['extra_days']."</br>";
 echo 'SCHEDLUE : '."</br>";
 ?>
-     	<table id="dg" >
+     	<table id="dg" width="100%">
 	
 			<tr>
 				<th  width="50">Pesawat</th>
