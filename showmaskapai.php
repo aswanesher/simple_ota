@@ -1,7 +1,11 @@
 <?php 
 require_once("header.php");
+require_once("function/func.php");
 $orig			= $_POST['orig'];
 $dest			= $_POST['dest'];
+$adult                  = $_POST['adult'];
+$senior                 = $_POST['senior'];
+$child                  = $_POST['child'];
 $way = $_POST['way'];
 if ($way == 1) {
    $pecahtgl1		= explode("/", $_POST['flight_date']);
@@ -60,6 +64,7 @@ echo 'SCHEDLUE : '."</br>";
 				<th  width="50">Take</th>
                                 <th  width="50">Landing</th>
                                 <th  width="50">Ava Sub Class</th>
+                                <th  width="50">Fare</th>
 			</tr>                   
                         <?php
 foreach ($json_idr['schedule'] as $value) {
@@ -75,6 +80,8 @@ foreach ($json_idr['schedule'] as $value) {
      echo $val[1];
      echo ',';
  }
+ echo '</td><td>';
+ echo get_fare($adult, $child, $senior, $orig, $dest, $flight_date, $value[0], "", "", 0, "fare_info","get_fare");
  echo'</td></tr>';
 }
 echo '</table>';
@@ -91,6 +98,7 @@ echo "Return Schedule : ";
 				<th  width="50">Take</th>
                                 <th  width="50">Landing</th>
                                 <th  width="50">Ava Sub Class</th>
+                                <th  width="50">Fare</th>
 			</tr>                   
                         <?php
 foreach ($json_idr['ret_schedule'] as $value) {
@@ -106,6 +114,8 @@ foreach ($json_idr['ret_schedule'] as $value) {
      echo $val[1];
      echo ',';
  }
+ echo '</td><td>';
+ echo get_fare($adult, $child, $senior, $orig, $dest, $flight_date, $value[0], $return_date,$value[0] , 1, "ret_fare_info","get_fare");
  echo'</td></tr>';
 }
 echo '</table>';
@@ -131,6 +141,7 @@ echo 'SCHEDULE : '."</br> </br>";
                                 <th  width="50">Departure time</th>
                                 <th  width="50">Arrival time</th>
                                 <th  width="50">Route</th>
+                                <th  width="50">Fare</th>
 			</tr>
 
                         <?php
@@ -147,6 +158,8 @@ echo 'SCHEDULE : '."</br> </br>";
  echo "$value[6]";
   echo '</td><td>';
  echo "$value[11]";
+  echo '</td><td>';
+ //echo get_fare($adult, $child, $senior, $orig, $dest, $flight_date, $value[0], "", "", 0, "fare_con", $act);
  echo'</td></tr>';
 }
 }
@@ -202,6 +215,7 @@ echo 'SCHEDLUE : '."</br>";
 				<th  width="50">Take</th>
                                 <th  width="50">Landing</th>
                                 <th  width="50">Ava Sub Class</th>
+                                <th  width="50">Fare</th>
 			</tr>                   
                         <?php
 foreach ($json['schedule'] as $value) {
@@ -217,6 +231,8 @@ foreach ($json['schedule'] as $value) {
      echo $val[1];
      echo ',';
  }
+ echo '</td><td>';
+ echo get_fare($adult, $child, $senior, $orig, $dest, $flight_date, $value[0], "", "", 0, "fare_info", "get_fare");
  echo'</td></tr>';
 }
 echo '</table>';
