@@ -28,6 +28,7 @@ if (isset($_POST['transit']) ){
 <div class="tabbed-area">
   <div class="box-wrap">
     <div id="box-one">
+    <div class="CSSTableGenerator" >
 
       <!-- MASUKKAN DATA -->
       <?php 
@@ -57,7 +58,7 @@ echo "Flight Date = ".$json_idr['flight_date']."</br>";
 echo "Extra Days = ".$json_idr['extra_days']."</br>";
 echo 'SCHEDLUE : '."</br>";
 ?>
-     	<table id="dg" width="100%">
+     	<table id="dg" width="100%" border="1">
 	
 			<tr>
 				<th  width="50">Pesawat</th>
@@ -91,7 +92,7 @@ echo "Return Flight Date : ".$json_idr['ret_flight_date']."</br>";
 echo "Return Schedule : ";
 
 ?>
-     	<table id="dg_" >
+     	<table id="dg_" border="1">
 	
 			<tr>
 				<th  width="50">Pesawat</th>
@@ -134,7 +135,7 @@ echo "Flight Date = ".$json['flight_date']."</br>";
 echo "Extra Days = ".$json['extra_days']."</br>";
 echo 'SCHEDULE : '."</br> </br>";
         ?>
-                             	<table id="dg" >
+                             	<table id="dg" border="1">
 	
 			<tr>
 				<th  width="50">Flight Number</th>
@@ -165,7 +166,7 @@ echo 'SCHEDULE : '."</br> </br>";
 }
 echo '</table>';
 ?>
-                             	<table id="dg" >
+                             	<table id="dg" border="1">
 	
 			<tr>
 				<th  width="50">Flight Number</th>
@@ -208,7 +209,7 @@ echo "Flight Date = ".$json['flight_date']."</br>";
 echo "Extra Days = ".$json['extra_days']."</br>";
 echo 'SCHEDLUE : '."</br>";
 ?>
-     	<table id="dg" >
+     	<table id="dg" border="1">
 	
 			<tr>
 				<th  width="50">Pesawat</th>
@@ -250,7 +251,7 @@ echo "Flight Date = ".$json['flight_date']."</br>";
 echo "Extra Days = ".$json['extra_days']."</br>";
 echo 'SCHEDULE : '."</br> </br>";
         ?>
-                             	<table id="dg" >
+                             	<table id="dg" border="1">
 	
 			<tr>
 				<th  width="50">Flight Number</th>
@@ -282,7 +283,7 @@ echo '</table>';
           
                 }//end
       ?>
-    
+    </div>
     </div>
   </div>
 </div>
