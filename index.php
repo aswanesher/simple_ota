@@ -25,7 +25,7 @@ require_once("header.php");
          <p class="pull-left">
           <label>From<small>( City name or airport )</small></label>
           <select class="pull-left" name="orig">
-              <?php 
+          <?php 
               $url = "http://ws.demo.awan.sqiva.com/?rqid=5EB9FE68-8915-11E0-BEA0-C9892766ECF2&airline_code=W2&app=data&action=get_org";
 $jsonUrl = file_get_contents($url, False);
 $json_idr = json_decode($jsonUrl, true);
@@ -33,7 +33,7 @@ echo "<option value=''>Origin</option>";
 foreach ($json_idr['origin'] as $myd) {
     echo "<option value='$myd[0]'>$myd[1] ($myd[0])</option>";
 }
-              ?>
+           ?>
             
           </select>
         </p>
