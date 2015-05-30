@@ -1,12 +1,17 @@
 <?php
 function get_fare($ad,$ch,$in,$org,$des,$fd,$fn,$rfd,$rfn,$rf,$arrai,$act) {
-    $url = "http://ws.demo.awan.sqiva.com/?rqid=5EB9FE68-8915-11E0-BEA0-C9892766ECF2&app=information&action=".$act."&org=".$org."&des=".$des."&flight_date=".$fd."&flight_no=".$fn."&ret_flight_date=".$rfd."&ret_flight_no=".$rfn."&return_flight=".$rf."";
+    $pecah = explode("-", $fn);
+
+    $nopesawat = $pecah[1];
+
+    $url = "http://ws.demo.awan.sqiva.com/?rqid=5EB9FE68-8915-11E0-BEA0-C9892766ECF2&app=information&action=".$act."&org=".$org."&des=".$des."&flight_date=".$fd."&flight_no=".$nopesawat."&ret_flight_date=".$rfd."&ret_flight_no=".$rfn."&return_flight=".$rf."";
     $get_url=  file_get_contents($url);
     $json = json_decode($get_url,true);
+    var_dump($json);
  //   print_r($url);
     $harga = 0;
     if (!empty($json[$arrai])) {
-        $harga = ( ($json[$arrai][0][1]*$ad) + ($json[$arrai][0][2]*$ch) + ($json[$arrai][0][3]*$in) );
+        $harga = ( ($json[$arrai][5][1]*$ad) + ($json[$arrai][5][2]*$ch) + ($json[$arrai][5][3]*$in) );
     }
     return $harga;
 }

@@ -52,7 +52,7 @@ if (isset($_POST['transit']) ){
               $url = "http://ws.demo.awan.sqiva.com/?rqid=5EB9FE68-8915-11E0-BEA0-C9892766ECF2&airline_code=&app=information&action=get_schedule&org=".$orig."&des=".$dest."&flight_date=".$flight_date."&return_flight=1&ret_flight_date=".$return_date."&extra_days=1";
         $jsonUrl = file_get_contents($url, False);
 		$json_idr = json_decode($jsonUrl, true);
-                echo "Origin = ". $json_idr['org']."</br>";
+echo "Origin = ". $json_idr['org']."</br>";
 echo "Destination = ".$json_idr['des']."</br>";
 echo "Flight Date = ".$json_idr['flight_date']."</br>";
 echo "Extra Days = ".$json_idr['extra_days']."</br>";
@@ -203,18 +203,18 @@ echo '</table>';
           $url ="http://ws.demo.awan.sqiva.com/?rqid=5EB9FE68-8915-11E0-BEA0-C9892766ECF2&airline_code=&app=information&action=get_schedule&org=".$orig."&des=".$dest."&flight_date=".$flight_date."&return_flight=0&ret_flight_date=&extra_days=1";
           $jsond = file_get_contents($url);
           $json = json_decode($jsond,true);
-                echo "Origin = ". $json['org']."</br>";
-echo "Destination = ".$json['des']."</br>";
-echo "Flight Date = ".$json['flight_date']."</br>";
-echo "Extra Days = ".$json['extra_days']."</br>";
-echo 'SCHEDLUE : '."</br>";
+                echo "Asal = ". $json['org']."</br>";
+echo "Tujuan = ".$json['des']."</br>";
+echo "Tanggal Penerbangan = ".$json['flight_date']."</br>";
+echo "Tambahan Hari = ".$json['extra_days']."</br></br>";
+echo 'Jadwal : '."</br>";
 ?>
      	<table id="dg" border="1">
 	
 			<tr>
-				<th  width="50">Pesawat</th>
-				<th  width="50">Take</th>
-                                <th  width="50">Landing</th>
+				<th  width="50">No. Pesawat</th>
+				<th  width="50">Berangkat</th>
+                                <th  width="50">Tiba</th>
                                 <th  width="50">Ava Sub Class</th>
                                 <th  width="50">Fare</th>
 			</tr>                   
